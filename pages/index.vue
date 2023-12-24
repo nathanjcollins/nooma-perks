@@ -42,7 +42,7 @@ const claimPerk = async (perk: any) => {
       />
       <UCard v-for="perk in filteredPerks">
         <template #header>
-          <h2 class="font-bold">{{ perk.name }}</h2>
+          <span class="font-bold">{{ perk.name }}</span>
         </template>
 
         {{ perk.description }}
