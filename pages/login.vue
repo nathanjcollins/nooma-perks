@@ -14,8 +14,11 @@ const signInWithOtp = async () => {
 };
 </script>
 <template>
-  <div>
-    <input v-model="email" type="email" />
-    <button @click="signInWithOtp">Sign In with E-Mail</button>
-  </div>
+  <UContainer
+    class="flex flex-col gap-2 max-w-5xl m-auto items-center min-h-screen justify-center"
+  >
+    <h1 class="font-bold text-xl">Happy Christmas, Nooma!</h1>
+    <UInput v-model="email" type="email" placeholder="Type your email..." />
+    <UButton @click="signInWithOtp">Sign In with E-Mail</UButton>
+  </UContainer>
 </template>
