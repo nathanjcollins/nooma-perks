@@ -4,5 +4,8 @@ export default defineNuxtConfig({
   modules: ["@nuxt/ui", "@nuxtjs/supabase"],
   runtimeConfig: {
     sendgridApiKey: "",
+    public: {
+      appUrl: "",
+    },
   },
 });
