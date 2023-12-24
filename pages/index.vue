@@ -30,7 +30,7 @@ const claimPerk = async (perk: any) => {
 
 <template>
   <UContainer class="max-w-5xl m-auto prose">
-    <UContainer class="flex flex-col gap-5">
+    <UContainer class="flex flex-col gap-5 mb-10">
       <UInput
         v-model="search"
         class="w-60"
