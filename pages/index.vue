@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const search = ref("");
-const client = useSupabaseClient();
 
 const { data: perks } = await useAsyncData("perks", async () => {
   const { data } = await useFetch("/api/perks");
@@ -22,7 +21,7 @@ const claimPerk = async (perk: any) => {
   perk.loading = true;
   perk.claimed = false;
 
-  await client.from("redemptions").insert({ perk_id: perk.id } as never);
+  await useFetch(`/api/redeem?id=${perk.id}`);
 
   perk.loading = false;
   perk.claimed = true;
@@ -56,7 +55,7 @@ const claimPerk = async (perk: any) => {
                 >(Remaining: {{ perk.limit - perk.redeemed }})</span
               >
             </div>
-            <div>
+            <div v-if="!perk.limit || perk.limit > perk.redeemed">
               <UButton
                 :disabled="perk.loading || perk.claimed"
                 @click="claimPerk(perk)"
